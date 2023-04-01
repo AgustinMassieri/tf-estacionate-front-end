@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import estacionateLogo from './estacionateLogo.png';
-import './Home.css'
+import estacionateLogo from '../images/estacionateLogo.png';
+import '../styles/Home.css';
 
 export default function Home() {
   return (
