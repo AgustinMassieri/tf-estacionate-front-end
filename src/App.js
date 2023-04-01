@@ -1,31 +1,17 @@
-import estacionateLogo from './estacionateLogo.png';
-import './App.css';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import * as React from 'react';
+import { Routes, Route } from 'react-router-dom';
+
 import Home from './Home';
-import Contact from './Contact';
+import Login from './Login';
+import SignUp from './SignUp';
+import './Home.css';
 
-function App() {
+export default function App() {
   return (
-
-    <Router>
-      <div className="App">
-        <header className="App-header">
-          <img src={estacionateLogo} className="App-logo" alt="logo" />
-          <p>
-            <code>ESTACIONATE</code>
-            <nav>
-              <Link to="/Home">Home</Link>
-            </nav>
-          </p>
-        </header>
-      </div>
-
     <Routes>
-      <Route path='/Home' element={<Home/>} />
-      <Route path="/contact" element={<Contact/>} />
+      <Route path="/" element={<Home />} />
+      <Route path="login" element={<Login />} />
+      <Route path="signUp" element={<SignUp />} />
     </Routes>
-  </Router>
   );
 }
-
-export default App;

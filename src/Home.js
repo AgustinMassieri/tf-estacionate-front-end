@@ -1,18 +1,19 @@
+import * as React from 'react';
+import { Link } from 'react-router-dom';
 import estacionateLogo from './estacionateLogo.png';
-import './App.css';
+import './Home.css'
 
-function Home() {
-
-  return(
-    <div className="App">
-      <header className="App-header">
-        <img src={estacionateLogo} className="App-logo" alt="logo" />
+export default function Home() {
+  return (
+    <div className="Home">
+      <header className="Home-header">
+        <img src={estacionateLogo} className="Home-logo" alt="logo" />
         <p>
-          <code>ESTACIONATE</code>
+          <h1><code>ESTACIONATE</code></h1>
+          <nav> <Link to="/login">Login</Link> </nav>
+          <nav> <Link to="/signUp">Sign Up</Link> </nav>
         </p>
       </header>
-    </div>
+  </div>
   );
 }
-
- export default Home;
