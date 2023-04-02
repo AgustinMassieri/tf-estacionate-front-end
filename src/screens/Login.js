@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { Button } from "@mui/material";
 import { Link } from 'react-router-dom';
-
+import '../styles/Login.css';
 
 const Login = () => {
 
@@ -13,19 +13,28 @@ const Login = () => {
     if ( email === '' || password === '' ) {
       alert("Please fill all the fields");
       return;
+    } else{
+      window.location.href = "/main";
     }
   }
   
   return(
-    <div>
-      <h1>Login</h1>
-      
-      <TextField label="Email" onChange={(e) => setEmail(e.target.value)} />
-      <TextField label="Password" onChange={(e) => setPassword(e.target.value)} />
+    <div className='Login'>
+      <h1>Inicia Sesion</h1>
+        <div style={{border: '2px solid black', borderRadius: '25px', paddingBottom: '15px', paddingLeft: '10px', paddingRight: '10px'}}> 
+        <div className='formInput'>
+          <TextField label="Mail" variant="standard" onChange={(e) => setEmail(e.target.value)} />
+        </div>  
+        
+        <div className='formInput'>
+          <TextField label="Contraseña" type="password" variant="standard" onChange={(e) => setPassword(e.target.value)} />
+        </div>
+      </div>
+      <br/>
+      <Button size="medium" onClick={handleRegister} variant="contained"> Iniciar Sesion </Button>
 
-      <Button size="medium" onClick={handleRegister} variant="contained"> Login </Button>
-
-      <p>Don't have an account? <Link to="/signUp">Sign Up</Link></p>
+      <p>¿No tenes una cuenta?</p>
+      <Button href='/SignUp' size="medium" variant="contained">Registrase</Button>
     </div>
   ); 
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { Button } from "@mui/material";
+import '../styles/SignUp.css';
 
 const SignUp = () => {
     
@@ -17,14 +18,24 @@ const SignUp = () => {
     }
 
     return(
-        <div>
-            <h1>Sign Up</h1>
-            
-            <TextField label="First Name" onChange={(e) => setFirstName(e.target.value)} />
-            <TextField label="Last name" onChange={(e) => setLastName(e.target.value)} />
-            <TextField label="Email" onChange={(e) => setEmail(e.target.value)} />
-            <TextField label="Password" onChange={(e) => setPassword(e.target.value)} />
-            <Button size="medium" onClick={handleRegister} variant="contained"> Login </Button>
+        <div className='SignUp'>
+            <h1>Registrate</h1>
+            <div style={{border: '2px solid black', borderRadius: '25px', paddingBottom: '15px', paddingLeft: '10px', paddingRight: '10px'}}> 
+                <div className='formInput'>
+                    <TextField required label="Nombre" variant="standard" onChange={(e) => setFirstName(e.target.value)} />
+                </div>
+                <div className='formInput'>
+                    <TextField required label="Apellido" variant="standard" onChange={(e) => setLastName(e.target.value)} />
+                </div>
+                <div className='formInput'>
+                    <TextField required label="Mail" variant="standard" onChange={(e) => setEmail(e.target.value)} />
+                </div>
+                <div className='formInput'>
+                    <TextField required label="Contraseña" type="password" variant="standard" onChange={(e) => setPassword(e.target.value)} />
+                </div>
+            </div>
+            <br/>
+            <Button size="medium" onClick={handleRegister} variant="contained"> Registrarse </Button>
         </div>
     ); 
 }
