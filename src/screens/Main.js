@@ -1,16 +1,11 @@
-import React from 'react';
-import '../styles/Main.css';
+import * as React from 'react';
+
+import TabsBar from '../components/TabsBar';
 
 const Main = () => {
  
   return(
-    <div className='Main'>
-      <h1>Main</h1>
-      
-      <p>Mis Reservas</p>
-      <p>Ver disponibilidad</p>
-      <p>Reservar</p>
-    </div>
+    <TabsBar/>
   ); 
 }
 
