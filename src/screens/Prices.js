@@ -8,7 +8,6 @@ const Prices = () => {
         <div style={{textAlign: 'center'}}>
             <TabsBar/>
             <br/>
-            <br/>
             <PricingTable/>
         </div>
     )
