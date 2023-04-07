@@ -6,19 +6,19 @@ const ParkingsTable = ({ parkings }) => {
         <Table style={{fontSize: '15px'}}>
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Direccion</th>
-                    <th>Lugares Disponibles</th>
-                    <th>Dueño</th>
+                    <th style={{paddingRight: '35px'}}>Nombre</th>
+                    <th style={{paddingRight: '35px'}}>Direccion</th>
+                    <th style={{paddingRight: '35px'}}>Lugares Disponibles</th>
+                    <th style={{paddingRight: '35px'}}>Dueño</th>
                 </tr>
             </thead>
             <tbody>
                 {parkings.map((parking) => (
                     <tr key={parking.id}>
-                    <td>{parking.name}</td>
-                    <td>{parking.location}</td>
-                    <td>{parking.numberOfParkingSpacesAvailable}</td>
-                    <td>{parking.owner}</td>
+                        <td style={{paddingRight: '35px'}}>{parking.name}</td>
+                        <td style={{paddingRight: '35px'}}>{parking.location}</td>
+                        <td style={{paddingRight: '35px'}}>{parking.numberOfParkingSpacesAvailable}</td>
+                        <td style={{paddingRight: '35px'}}>{parking.owner}</td>
                     </tr>
                 ))}
             </tbody>

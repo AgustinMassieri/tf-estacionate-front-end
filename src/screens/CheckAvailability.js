@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import TabsBar from '../components/TabsBar';
 import ParkingsTable from '../components/ParkingsTable';
 
-const Prices = () => {
+const CheckAvailability = () => {
 
     const [parkings, setParkings] = useState([]);
 
@@ -34,4 +34,4 @@ const Prices = () => {
     );
 }
 
-export default Prices;
+export default CheckAvailability;

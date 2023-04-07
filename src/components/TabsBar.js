@@ -9,11 +9,7 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
 import avatarLogo from '../images/avatar.png';
-
-const pages = ['Mis reservas', 'Ver disponibilidad','Precios y Horarios', 'Sobre nosotros'];
-const settings = ['Mi cuenta', 'Ajustes', 'Cerrar sesión'];
 
 const TabsBar = () => {
 
@@ -21,10 +17,6 @@ const TabsBar = () => {
 
     const handleOpenUserMenu = (event) => {
       setAnchorElUser(event.currentTarget);
-    };
-  
-    const redirect = () => {
-        window.location.href = '/';
     };
   
     const handleCloseUserMenu = () => {
@@ -53,16 +45,19 @@ const TabsBar = () => {
                 ESTACIONATE
             </Typography>
 
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                {pages.map((page) => (
-                <Button
-                    key={page}
-                    onClick={redirect}
-                    sx={{ my: 2, color: 'inherit', fontFamily: 'unset', display: 'block' }}
-                >
-                    {page}
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, marginLeft: '11%' } }>
+                <Button sx={{ my: 2, color: 'inherit', fontFamily: 'unset', display: 'block' }} href='/reservations'>
+                    Mis reservas
                 </Button>
-                ))}
+                <Button sx={{ my: 2, color: 'inherit', fontFamily: 'unset', display: 'block' }} href='/checkAvailability'>
+                    Ver disponibilidad
+                </Button>
+                <Button sx={{ my: 2, color: 'inherit', fontFamily: 'unset', display: 'block' }} href='/prices'>
+                    Tarifas
+                </Button>
+                <Button sx={{ my: 2, color: 'inherit', fontFamily: 'unset', display: 'block' }} href='/aboutUs'>
+                    Sobre Nosotros
+                </Button>
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
@@ -87,11 +82,19 @@ const TabsBar = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
                 >
-                {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
-                    </MenuItem>
-                ))}
+                
+                    <Button sx={{ color: 'inherit', fontFamily: 'unset', display: 'block' }} href='/'>
+                        Mi cuenta
+                    </Button>
+
+                    <Button sx={{ color: 'inherit', fontFamily: 'unset', display: 'block' }} href='/'>
+                    Ajustes
+                    </Button>
+
+                    <Button sx={{ color: 'inherit', fontFamily: 'unset', display: 'block' }} href='/'>
+                    Cerrar sesion
+                    </Button>
+                
                 </Menu>
             </Box>
             </Toolbar>
