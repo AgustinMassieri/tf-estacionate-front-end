@@ -17,16 +17,17 @@ const SignUp = () => {
             alert("Please fill all the fields");
             return;
         }
-        fetch('http://localhost:3001/api/users', {
+        fetch('http://localhost:3001/api/auth/register', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(user)
         }).then(function(response) {
-            console.log('> Body: ' + JSON.stringify(user));
-            console.log('> Response: ' + response);
-            return response.json();
+            console.log('> StatusCode: ' + JSON.stringify(response.status));
+            if(response.status === 200){
+                window.location.href = "/login";
+            }
         });
     }
 

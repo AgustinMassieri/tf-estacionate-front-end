@@ -12,7 +12,7 @@ export default function App() {
     <div className='Home-header'>
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="login" element={<Login />} />
+      <Route path="login" element={<Login />}/>
       <Route path="signUp" element={<SignUp />} />
       <Route path="main" element={<Main />} />
     </Routes>

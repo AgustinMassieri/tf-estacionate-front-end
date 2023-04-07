@@ -5,28 +5,46 @@ import '../styles/Login.css';
 
 const Login = () => {
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState({
+    email: '',
+    password: ''
+  });
+
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const handleRegister = () => {
-    if ( email === '' || password === '' ) {
+    if ( user.email === '' || user.password === '' ) {
       alert("Please fill all the fields");
       return;
     } else{
-      window.location.href = "/main";
+      fetch('http://localhost:3001/api/auth/login', {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+      }).then(function(response) {
+        if(response.status === 200){
+          window.location.href = "/main";
+        }
+        else{
+          setErrorMessage(true);
+        }
+      });
     }
   }
   
   return(
     <div className='Login'>
       <h1>Inicia Sesion</h1>
+        {errorMessage && <p style={{color: 'red'}}>Usuario y/o contraseña incorrectos</p>}
         <div style={{border: '2px solid black', borderRadius: '25px', paddingBottom: '15px', paddingLeft: '10px', paddingRight: '10px'}}> 
         <div className='formInput'>
-          <TextField label="Mail" variant="standard" onChange={(e) => setEmail(e.target.value)} />
+        <TextField required label="Mail" variant="standard" onChange={(e) => setUser({...user, email: e.target.value})} onKeyPress={event => { if (event.key === 'Enter') { handleRegister() } }} />
         </div>  
         
         <div className='formInput'>
-          <TextField label="Contraseña" type="password" variant="standard" onChange={(e) => setPassword(e.target.value)} />
+        <TextField required label="Contraseña" type="password" variant="standard" onChange={(e) => setUser({...user, password: e.target.value})} onKeyPress={event => { if (event.key === 'Enter') { handleRegister() } }} />
         </div>
       </div>
       <br/>
