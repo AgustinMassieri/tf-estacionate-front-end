@@ -18,7 +18,7 @@ const rows = [
   createData('1 dia', '$2400')
 ];
 
-const BasicTable = () => {
+const PricingTable = () => {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -46,4 +46,4 @@ const BasicTable = () => {
   );
 }
 
-export default BasicTable;
+export default PricingTable;
