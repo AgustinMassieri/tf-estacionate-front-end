@@ -23,14 +23,18 @@ const Login = () => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(user)
-      }).then(function(response) {
-        if(response.status === 200){
-          window.location.href = "/main";
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        if(data.data.status === 200){
+            localStorage.setItem('token', data.data.token);
+            window.location.href = "/main";
         }
         else{
           setErrorMessage(true);
         }
-      });
+      })
     }
   }
   
