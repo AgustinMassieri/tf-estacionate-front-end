@@ -61,7 +61,7 @@ const TabsBar = () => {
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
-                <Tooltip title="Open settings">
+                <Tooltip title="Abrir ajustes">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                     <Avatar src={avatarLogo} />
                 </IconButton>

@@ -14,7 +14,7 @@ const Login = () => {
 
   const handleRegister = () => {
     if ( user.email === '' || user.password === '' ) {
-      alert("Please fill all the fields");
+      setErrorMessage(true);      
       return;
     } else{
       fetch('http://localhost:3001/api/auth/login', {
@@ -27,8 +27,8 @@ const Login = () => {
       .then(response => response.json())
       .then(data => {
         console.log(data)
-        if(data.data.status === 200){
-            localStorage.setItem('token', data.data.token);
+        if(data.status === 200){
+            localStorage.setItem('token', data.token);
             window.location.href = "/main";
         }
         else{
