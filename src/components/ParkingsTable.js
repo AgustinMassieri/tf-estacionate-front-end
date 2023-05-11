@@ -1,7 +1,10 @@
 import * as React from 'react';
-import { Table } from "@mui/material";
+import {Table } from "@mui/material";
+import Reserva from  './Reserva';
 
 const ParkingsTable = ({ parkings }) => {
+    
+
     return (
         <Table style={{fontSize: '15px'}}>
             <thead>
@@ -19,6 +22,7 @@ const ParkingsTable = ({ parkings }) => {
                         <td style={{paddingRight: '35px'}}>{parking.location}</td>
                         <td style={{paddingRight: '35px'}}>{parking.numberOfParkingSpacesAvailable}</td>
                         <td style={{paddingRight: '35px'}}>{parking.owner}</td>
+                        <Reserva parking={parking}></Reserva>
                     </tr>
                 ))}
             </tbody>

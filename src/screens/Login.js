@@ -29,6 +29,7 @@ const Login = () => {
         console.log(data)
         if(data.status === 200){
             localStorage.setItem('token', data.token);
+            localStorage.setItem('userId', data.user._id);
             window.location.href = "/main";
         }
         else{
