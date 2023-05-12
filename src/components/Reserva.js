@@ -13,8 +13,6 @@ const Reserva = ({ parking }) => {
 
     const updateParking = () => {
         console.log('Reseva: ' + reservation);
-
-        if (reservation.parkingId !== ''){
             parking.numberOfParkingSpacesAvailable -= 1;
             if(parking.numberOfParkingSpacesAvailable >= 0){
                 fetch('http://localhost:3001/api/parkings/'+parking._id, {
@@ -55,10 +53,11 @@ const Reserva = ({ parking }) => {
                 setErrorMessage(true);
             }
         }   
-    }
+    
 
     useEffect(() => {
-        updateParking();
+        if (reservation.parkingId !== ''){
+        updateParking();}
     }, [reservation]);
 
     return (
