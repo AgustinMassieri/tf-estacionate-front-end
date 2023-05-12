@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "@mui/material";
 
 const Reserva = ({ parking }) => {
+
     const [reservation, setReservation] = useState({
         parkingId: '',
         parkingName: '',
         userId: ''
     });
 
+    const [errorMessage, setErrorMessage] = useState(false);
 
     const updateParking = () => {
         console.log('Reseva: ' + reservation);
@@ -24,7 +26,6 @@ const Reserva = ({ parking }) => {
                     body: JSON.stringify(parking)
                 }).then(function(response) {
                     if(response.status === 200){
-                        //window.location.href = "/reservations";
                         console.log("Se actualizo el estacionamiento")
                     }
                     else{
@@ -42,14 +43,17 @@ const Reserva = ({ parking }) => {
                 }).then(function(response) {
                     if(response.status === 200){
                         console.log("Se creo la reserva")
+                        window.location.href = "/reservations";
                     }
                     else{
                         console.log("Hubo un error creando la reserva")
                     } 
                 });
+
+            } else{
+                console.log("No se puede reservar ya que no hay lugares disponibles");
+                setErrorMessage(true);
             }
-        } else{
-            console.log("No se puede reservar ya que no hay lugares disponibles");
         }   
     }
 
@@ -58,7 +62,11 @@ const Reserva = ({ parking }) => {
     }, [reservation]);
 
     return (
-        <Button size="medium" onClick={() => {setReservation({...reservation, parkingId:parking._id, parkingName:parking.name ,userId: localStorage.getItem('userId') })}} variant="contained"> Reservar </Button>
+        <div>
+        <Button size="small" onClick={() => {setReservation({...reservation, parkingId:parking._id, parkingName:parking.name ,userId: localStorage.getItem('userId') })}} variant="contained"> Reservar </Button>
+        {errorMessage && (<p style={{color:'red', display: ''}}>No hay lugares disponibles</p>)}
+        </div>
+
     )
 }
 

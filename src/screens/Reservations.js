@@ -7,7 +7,7 @@ const Reservations = () => {
     const [reservations, setReservations] = useState([]);
 
     const getReservations = async () => {
-    const response = await fetch('http://localhost:3001/api/reservations',
+    const response = await fetch('http://localhost:3001/api/reservations/' + localStorage.getItem('userId'),
         {
         method: 'GET',
         headers: {
