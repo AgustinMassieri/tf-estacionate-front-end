@@ -10,8 +10,23 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import avatarLogo from '../images/avatar.png';
+import { deepPurple } from '@mui/material/colors';
+import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 
 const TabsBar = () => {
+    const customTheme = createTheme({
+      });
+    const StyledAvatar = styled(Avatar)`
+        ${({ theme }) => `
+        cursor: pointer;
+        transition: ${theme.transitions.create(['transform'], {
+            duration: theme.transitions.duration.standard,
+        })};
+        &:hover {
+            transform: scale(1.3);
+        }
+        `}
+        `;
 
     const [anchorElUser, setAnchorElUser] = React.useState(null);  
 
@@ -63,7 +78,9 @@ const TabsBar = () => {
             <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Abrir ajustes">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar src={avatarLogo} />
+                <ThemeProvider theme={customTheme}>
+                    <StyledAvatar src = {avatarLogo}></StyledAvatar>
+                </ThemeProvider>
                 </IconButton>
                 </Tooltip>
                 <Menu
