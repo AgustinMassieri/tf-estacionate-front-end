@@ -8,17 +8,17 @@ const ReservationsTable = ({ reservations }) => {
         <Table style={{fontSize: '15px'}}>
             <thead>
                 <tr>
-                    <th style={{paddingRight: '35px'}}>Id de Reserva</th>
-                    <th style={{paddingRight: '35px'}}>Nombre</th>
-                    <th style={{paddingRight: '35px'}}>User Id</th>
+                    <th style={{paddingRight: '35px', paddingBottom: '30px'}}>Id de Reserva</th>
+                    <th style={{paddingRight: '35px', paddingBottom: '30px'}}>Nombre</th>
+                    <th style={{paddingRight: '35px', paddingBottom: '30px'}}>User Id</th>
                 </tr>
             </thead>
             <tbody>
                 {reservations.map((reservation) => (
                     <tr key={reservation._id}>
-                        <td style={{paddingRight: '35px'}}>{reservation._id}</td>
-                        <td style={{paddingRight: '35px'}}>{reservation.parkingName}</td>
-                        <td style={{paddingRight: '35px'}}>{reservation.userId}</td>
+                        <td style={{paddingRight: '35px', paddingBottom: '30px'}}>{reservation._id}</td>
+                        <td style={{paddingRight: '35px', paddingBottom: '30px'}}>{reservation.parkingName}</td>
+                        <td style={{paddingRight: '35px', paddingBottom: '30px'}}>{reservation.userId}</td>
                     </tr>
                 ))}
             </tbody>

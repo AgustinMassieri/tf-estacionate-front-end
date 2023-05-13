@@ -10,10 +10,12 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import avatarLogo from '../images/avatar.png';
-import { deepPurple } from '@mui/material/colors';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 
 const TabsBar = () => {
+
+    const username = localStorage.getItem('username');
+
     const customTheme = createTheme({
       });
     const StyledAvatar = styled(Avatar)`
@@ -74,6 +76,10 @@ const TabsBar = () => {
                     Sobre Nosotros
                 </Button>
             </Box>
+
+            <Button sx={{ my: 2, color: 'inherit', fontFamily: 'unset', display: 'block' }} href='/reservations'>
+                    {username}
+            </Button>
 
             <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Abrir ajustes">
