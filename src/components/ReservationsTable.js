@@ -9,8 +9,9 @@ const ReservationsTable = ({ reservations }) => {
             <thead>
                 <tr>
                     <th style={{paddingRight: '35px', paddingBottom: '30px'}}>Id de Reserva</th>
-                    <th style={{paddingRight: '35px', paddingBottom: '30px'}}>Nombre</th>
-                    <th style={{paddingRight: '35px', paddingBottom: '30px'}}>User Id</th>
+                    <th style={{paddingRight: '35px', paddingBottom: '30px'}}>Estacionamiento</th>
+                    <th style={{paddingRight: '35px', paddingBottom: '30px'}}>Dirección</th>
+                    <th style={{paddingRight: '35px', paddingBottom: '30px'}}>Nombre del usuario</th>
                 </tr>
             </thead>
             <tbody>
@@ -18,7 +19,8 @@ const ReservationsTable = ({ reservations }) => {
                     <tr key={reservation._id}>
                         <td style={{paddingRight: '35px', paddingBottom: '30px'}}>{reservation._id}</td>
                         <td style={{paddingRight: '35px', paddingBottom: '30px'}}>{reservation.parkingName}</td>
-                        <td style={{paddingRight: '35px', paddingBottom: '30px'}}>{reservation.userId}</td>
+                        <td style={{paddingRight: '35px', paddingBottom: '30px'}}>{reservation.location}</td>
+                        <td style={{paddingRight: '35px', paddingBottom: '30px'}}>{reservation.userName}</td>
                     </tr>
                 ))}
             </tbody>
