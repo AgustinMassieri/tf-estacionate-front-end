@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TabsBar from '../components/TabsBar';
 import ReservationsTable from '../components/ReservationsTable';
+import ResTab from '../components/ResTab';
 
 const Reservations = () => {
 
@@ -29,7 +30,8 @@ const Reservations = () => {
           <TabsBar/>
           <br/>
           <br/>
-          <ReservationsTable reservations={reservations}/>
+          {<ResTab reservations={reservations}/>}
+          {/*<ReservationsTable reservations={reservations}/>*/}
         </div>  
     );
 

@@ -1,8 +1,9 @@
 import * as React from 'react';
-import {Table } from "@mui/material";
+import Table from '@mui/material/Table';
+
 
 const ReservationsTable = ({ reservations }) => {
-    console.log(reservations)
+    console.log(reservations);
 
     return (
         <Table style={{fontSize: '15px'}}>
