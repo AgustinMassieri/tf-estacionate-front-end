@@ -7,22 +7,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import tacho from '../images/tacho.png'
 
 const columns = [
-  { id: '_id', label: 'Id de Reserva', minWidth: 170 },
-  { id: 'parkingName', label: 'Estacionamiento', minWidth: 100 },
-  {
-    id: 'location',
-    label: 'Dirección',
-    minWidth: 170,
-    align: 'right',
-  },
-  {
-    id: 'userName',
-    label: 'Nombre del usuario',
-    minWidth: 170,
-    align: 'right',
-  }
+  { id: '_id', label: 'Id de Reserva', minWidth: 170, align: 'center'},
+  { id: 'parkingName', label: 'Estacionamiento', minWidth: 170, align: 'center'},
+  { id: 'location', label: 'Dirección', minWidth: 170, align: 'center'}, 
+  { id: 'userName', label: 'Nombre del usuario', minWidth: 170, align: 'center'}
 ];
 
 
@@ -49,7 +40,7 @@ export default function StickyHeadTable({reservations}) {
                 <TableCell
                   key={column.id}
                   align={column.align}
-                  style={{ minWidth: column.minWidth }}
+                  style={{ minWidth: column.minWidth, fontWeight: 'bold', fontSize: '16px' }}
                 >
                   {column.label}
                 </TableCell>
@@ -72,6 +63,7 @@ export default function StickyHeadTable({reservations}) {
                         </TableCell>
                       );
                     })}
+                    <img src={tacho} alt= "tacho" width = "30" height = "30" style={{marginTop: '40%'}}/>
                   </TableRow>
                 );
               })}
@@ -79,7 +71,7 @@ export default function StickyHeadTable({reservations}) {
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
+        rowsPerPageOptions={[5, 10, 15, 20]}
         component="div"
         count={reservations.length}
         rowsPerPage={rowsPerPage}
