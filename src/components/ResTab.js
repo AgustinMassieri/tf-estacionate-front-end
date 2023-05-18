@@ -13,7 +13,7 @@ const columns = [
   { id: '_id', label: 'Id de Reserva', minWidth: 170, align: 'center'},
   { id: 'parkingName', label: 'Estacionamiento', minWidth: 170, align: 'center'},
   { id: 'location', label: 'Dirección', minWidth: 170, align: 'center'}, 
-  { id: 'userName', label: 'Nombre del usuario', minWidth: 170, align: 'center'}
+  { id: 'userName', label: 'Nombre del usuario', minWidth: 170, align: 'center'},
 ];
 
 
@@ -31,7 +31,7 @@ export default function StickyHeadTable({reservations}) {
   };
 
   return (
-    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+    <Paper sx={{ width: '110%', overflow: 'hidden' }}>
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
@@ -52,7 +52,7 @@ export default function StickyHeadTable({reservations}) {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((reservation) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={reservation._id}>
+                  <TableRow hover role="checkbox" tabIndex={-1} key={reservation._id} >
                     {columns.map((column) => {
                       const value = reservation[column.id];
                       return (
@@ -63,7 +63,7 @@ export default function StickyHeadTable({reservations}) {
                         </TableCell>
                       );
                     })}
-                    <img src={tacho} alt= "tacho" width = "30" height = "30" style={{marginTop: '40%'}}/>
+                    <img src={tacho} alt= "tacho" width = "30" height = "30" style={{marginTop: '30%', marginRight: '15px'}}/>
                   </TableRow>
                 );
               })}
