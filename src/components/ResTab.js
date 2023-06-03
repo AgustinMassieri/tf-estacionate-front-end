@@ -14,6 +14,7 @@ import { Button } from '@mui/material';
 const columns = [
   { id: '_id', label: 'Id de Reserva', minWidth: 170, align: 'center'},
   { id: 'parkingName', label: 'Estacionamiento', minWidth: 170, align: 'center'},
+  { id: 'date', label: 'Fecha', minWidth: 170, align: 'center'},
   { id: 'location', label: 'Dirección', minWidth: 170, align: 'center'}, 
   { id: 'userName', label: 'Nombre del usuario', minWidth: 170, align: 'center'},
   { id: 'actions', label: '', minWidth: 50, align: 'center'},
