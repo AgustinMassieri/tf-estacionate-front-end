@@ -6,7 +6,8 @@ const Reserva = ({ parking }) => {
     const [reservation, setReservation] = useState({
         parkingId: '',
         parkingName: '',
-        userId: ''
+        userId: '',
+        status: 'Registrada'
     });
 
     const [errorMessage, setErrorMessage] = useState(false);
