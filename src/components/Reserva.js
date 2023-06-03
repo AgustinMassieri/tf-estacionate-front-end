@@ -7,7 +7,8 @@ const Reserva = ({ parking }) => {
         parkingId: '',
         parkingName: '',
         userId: '',
-        status: 'Registrada'
+        status: 'Registrada',
+        date: '03/06/2023'
     });
 
     const [errorMessage, setErrorMessage] = useState(false);
