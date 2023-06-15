@@ -20,7 +20,7 @@ const ParkingsTable = ({ parkings }) => {
                         <td style={{paddingRight: '35px', paddingBottom: '30px'}}>{parking.location}</td>
                         <td style={{paddingRight: '35px', paddingBottom: '30px'}}>{parking.numberOfParkingSpacesAvailable}</td>
                         <td style={{paddingRight: '35px', paddingBottom: '30px'}}>{parking.owner}</td>
-                        <Reserva parking={parking}></Reserva>
+                        <Reserva parking={parking} resDate={resDate}></Reserva>
                     </tr>
                 ))}
             </tbody>
