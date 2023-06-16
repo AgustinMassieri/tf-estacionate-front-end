@@ -7,6 +7,7 @@ const CreateParkingModal = ({open, setOpen}) => {
         name: '',
         location: '',
         numberOfParkingSpacesAvailable: 0,
+        price :0
     });
 
     const [errorMessage, setErrorMessage] = useState(false);
@@ -32,7 +33,7 @@ const CreateParkingModal = ({open, setOpen}) => {
 
     const createParking = () => {
         
-        if ( parking.name === '' || parking.location === '' || parking.numberOfParkingSpacesAvailable === 0 || parking.owner === '' ) {
+        if ( parking.name === '' || parking.location === '' || parking.numberOfParkingSpacesAvailable === 0 || parking.owner === '' || parking.price === '') {
             setErrorMessage(true);      
             return;
         } else{
@@ -85,6 +86,9 @@ const CreateParkingModal = ({open, setOpen}) => {
             </div>
             <div className='formInput'>
                 <TextField placeholder='Dueño' variant="standard" onChange={(e) => setParking({...parking, owner: e.target.value})}/>
+            </div>
+            <div className='formInput'>
+                <TextField placeholder='Precio' variant="standard" onChange={(e) => setParking({...parking, price: e.target.value})}/>
             </div>
             <br/>
             {errorMessage && <p style={{color: 'red'}}>Los datos ingresados no son válidos</p>}

@@ -11,6 +11,7 @@ const ParkingsTable = ({ parkings, resDate}) => {
                     <th style={{paddingRight: '35px', paddingBottom: '30px'}}>Direccion</th>
                     <th style={{paddingRight: '35px', paddingBottom: '30px'}}>Lugares Disponibles</th>
                     <th style={{paddingRight: '35px', paddingBottom: '30px'}}>Dueño</th>
+                    <th style={{paddingRight: '35px', paddingBottom: '30px'}}>Precio Reserva</th>
                 </tr>
             </thead>
             <tbody >
@@ -20,6 +21,7 @@ const ParkingsTable = ({ parkings, resDate}) => {
                         <td style={{paddingRight: '35px', paddingBottom: '30px'}}>{parking.location}</td>
                         <td style={{paddingRight: '35px', paddingBottom: '30px'}}>{parking.numberOfParkingSpacesAvailable}</td>
                         <td style={{paddingRight: '35px', paddingBottom: '30px'}}>{parking.owner}</td>
+                        <td style={{paddingRight: '35px', paddingBottom: '30px'}}>{parking.price}</td>
                         <Reserva parking={parking} resDate={resDate}></Reserva>
                     </tr>
                 ))}

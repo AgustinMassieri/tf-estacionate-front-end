@@ -69,9 +69,6 @@ const TabsBar = () => {
                 <Button sx={{ my: 2, color: 'inherit', fontFamily: 'unset', display: 'block' }} href='/checkAvailability'>
                     Ver disponibilidad
                 </Button>
-                <Button sx={{ my: 2, color: 'inherit', fontFamily: 'unset', display: 'block' }} href='/prices'>
-                    Tarifas
-                </Button>
                 <Button sx={{ my: 2, color: 'inherit', fontFamily: 'unset', display: 'block' }} href='/aboutUs'>
                     Sobre Nosotros
                 </Button>
