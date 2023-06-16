@@ -27,7 +27,7 @@ const SignUp = () => {
             body: JSON.stringify(user)
         }).then(function(response) {
             if(response.status === 200){
-                window.location.href = "/login";
+                window.location.replace('/login');
             }
             else{
                 setErrorMessage(true);

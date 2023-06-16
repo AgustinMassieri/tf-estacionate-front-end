@@ -38,21 +38,21 @@ const Main = () => {
       <div style={{textAlign: 'center', marginTop: '15%'}}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
           <ThemeProvider theme={customTheme}>
-            <StyledDiv onClick={() => {window.location.href= '/reservations'}} >
+            <StyledDiv onClick={() => {window.location.replace('/reservations')}} >
               <p>MIS RESERVAS</p>
               <img src = {calendarLogo} alt = "calendar" width = "100" height = "100" style={{}}/>
             </StyledDiv>
           </ThemeProvider>
 
           <ThemeProvider theme={customTheme}>
-            <StyledDiv onClick={() => {window.location.href= '/checkAvailability'}} style={{cursor:'pointer'}}>
+            <StyledDiv onClick={() => {window.location.replace('/checkAvailability')}} style={{cursor:'pointer'}}>
               <p>VER DISPONIBILIDAD</p>
               <img src = {horarioLogo} alt = "calendar" width = "100" height = "100"/>
             </StyledDiv>
           </ThemeProvider>
 
           <ThemeProvider theme={customTheme}>
-            <StyledDiv onClick={() => {window.location.href= '/aboutUs'}} style={{cursor:'pointer'}}>
+            <StyledDiv onClick={() => {window.location.replace('/aboutUs')}} style={{cursor:'pointer'}}>
               <p>SOBRE NOSOTROS</p>
               <img src = {informacionLogo} alt = "calendar" width = "100" height = "100"/>
             </StyledDiv>

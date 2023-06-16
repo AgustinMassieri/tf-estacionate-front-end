@@ -56,7 +56,7 @@ export default function StickyHeadTable({reservations}) {
           } 
       });
 
-    window.location.href = "/reservations";
+    window.location.replace('/reservations');
 
   }
 

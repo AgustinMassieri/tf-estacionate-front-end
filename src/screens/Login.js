@@ -31,7 +31,7 @@ const Login = () => {
             localStorage.setItem('userId', data.user._id);
             localStorage.setItem('username', data.user.firstName  + ' ' + data.user.lastName);
             localStorage.setItem('roles', data.user.role[0]);
-            window.location.href = "/main";
+            window.location.replace('/main');
         }
         else{
           setErrorMessage(true);

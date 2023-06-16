@@ -26,7 +26,7 @@ const Reserva = ({ parking,resDate }) => {
                 }).then(function(response) {
                     if(response.status === 200){
                         console.log("Se creo la reserva")
-                        window.location.href = "/reservations";
+                        window.location.replace('/reservations');
                     }
                     else{
                         console.log("Hubo un error creando la reserva")
