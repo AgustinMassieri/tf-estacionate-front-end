@@ -3,9 +3,6 @@ import {Table } from "@mui/material";
 import Reserva from  './Reserva';
 
 const ParkingsTable = ({ parkings, resDate}) => {
-    useEffect(() => {
-        ;
-    }, [resDate]);
     return (
         <Table style={{fontSize: '15px'}}>
             <thead>

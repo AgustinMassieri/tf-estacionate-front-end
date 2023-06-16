@@ -26,7 +26,6 @@ const Login = () => {
       })
       .then(response => response.json())
       .then(data => {
-        console.log(data)
         if(data.status === 200){
             localStorage.setItem('token', data.token);
             localStorage.setItem('userId', data.user._id);

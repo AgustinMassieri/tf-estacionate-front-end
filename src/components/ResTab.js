@@ -22,6 +22,9 @@ const columns = [
 
 
 export default function StickyHeadTable({reservations}) {
+
+  console.log('$$ ' + JSON.stringify(reservations))
+
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 

@@ -12,25 +12,9 @@ const Reserva = ({ parking,resDate }) => {
         date: resDate.toISOString().split(['T'])[0]
     });
 
-    const updateParking = () => {
-        console.log('Reserva: ' + JSON.stringify(reservation));
-            parking.numberOfParkingSpacesAvailable -= 1;
+    const createReservation = () => {
+
             if(parking.numberOfParkingSpacesAvailable >= 0){
-                fetch('http://localhost:3001/api/parkings/'+parking._id, {
-                    method: 'PUT',
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": "Bearer " + localStorage.getItem('token')
-                    },
-                    body: JSON.stringify(parking)
-                }).then(function(response) {
-                    if(response.status === 200){
-                        console.log("Se actualizo el estacionamiento")
-                    }
-                    else{
-                        console.log("Hubo un error actualizando el estacionamiento")
-                    } 
-                });
 
                 fetch('http://localhost:3001/api/reservations/', {
                     method: 'POST',
@@ -42,7 +26,7 @@ const Reserva = ({ parking,resDate }) => {
                 }).then(function(response) {
                     if(response.status === 200){
                         console.log("Se creo la reserva")
-                       // window.location.href = "/reservations";
+                        window.location.href = "/reservations";
                     }
                     else{
                         console.log("Hubo un error creando la reserva")
@@ -58,12 +42,13 @@ const Reserva = ({ parking,resDate }) => {
 
     useEffect(() => {
         if (reservation.parkingId !== ''){
-        updateParking();}
+            createReservation();
+        }
     }, [reservation]);
 
     return (
         <div>
-        <Button size="small" onClick={() => {setReservation({...reservation, parkingId:parking._id, parkingName:parking.name ,userId: localStorage.getItem('userId') })}} variant="contained"> Reservar </Button>
+        <Button size="small" onClick={() => {setReservation({...reservation, parkingId:parking._id, parkingName:parking.name, userId: localStorage.getItem('userId'), date: resDate.toISOString().split(['T'])[0] })}} variant="contained"> Reservar </Button>
         {errorMessage && (<p style={{color:'red', display: ''}}>No hay lugares disponibles</p>)}
         </div>
 

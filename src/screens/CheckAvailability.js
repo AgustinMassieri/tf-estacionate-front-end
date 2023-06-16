@@ -6,6 +6,7 @@ import CreateParkingModal from '../components/CreateParkingModal';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import dayjs from 'dayjs';
 
 const CheckAvailability = () => {
 
@@ -15,7 +16,7 @@ const CheckAvailability = () => {
     const isAdmin = localStorage.getItem('roles') === 'admin';
 
     const getParkings = async () => {
-        const response = await fetch('http://localhost:3001/api/parkings', {
+        const response = await fetch('http://localhost:3001/api/parkings/ByDate/' + startDate.toISOString().split(['T'])[0], {
           method: 'GET',
           headers: {
             "Content-Type": "application/json",
@@ -23,19 +24,21 @@ const CheckAvailability = () => {
           }
         });
         const data = await response.json();
-        setParkings(data.data);
+        setParkings(data.parkings);
     }    
 
     useEffect(() => {
         getParkings();
-        console.log(startDate)
     }, [startDate]);
 
     return(
         <div style={{textAlign: 'center'}}>
             <TabsBar/>
             <br/>
-            <br/>
+            <LocalizationProvider dateAdapter={AdapterDayjs} >
+                <DatePicker selected={startDate} format='DD-MM-YYYY' onChange={(newDate) => setStartDate(newDate)} defaultValue={dayjs(new Date())} disablePast sx={{backgroundColor:'white',borderRadius:'10px', width: "150px"}} label="" />
+            </LocalizationProvider>
+            <br/><br/>
             {isAdmin && <Button variant='contained' onClick={() => setOpen(true)}>Agregar estacionamiento</Button>}
             <br/>
             <br/>
@@ -43,9 +46,7 @@ const CheckAvailability = () => {
             <React.Fragment>
                 <CreateParkingModal open={open} setOpen={setOpen}/>
             </React.Fragment>
-        <LocalizationProvider dateAdapter={AdapterDayjs} >
-            <DatePicker selected={startDate} format='DD-MM-YY'  onChange={(newDate) => setStartDate(newDate)} disablePast sx={{backgroundColor:'white',borderRadius:'10px',position: "absolute",top: "25%",left: "43%"}} label="" />
-        </LocalizationProvider>
+
         </div>  
     );
 }

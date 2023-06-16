@@ -7,17 +7,15 @@ const Reservations = () => {
     const [reservations, setReservations] = useState([]);
 
     const getReservations = async () => {
-    const response = await fetch('http://localhost:3001/api/reservations/' + localStorage.getItem('userId'),
-        {
-        method: 'GET',
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + localStorage.getItem('token')
-        }
-        }
-    );
-    const data = await response.json();
-    setReservations(data.data);
+        const response = await fetch('http://localhost:3001/api/reservations/' + localStorage.getItem('userId'), {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem('token')
+            }
+        });
+        const data = await response.json();
+        setReservations(data.data);
     }
 
     useEffect(() => {
