@@ -106,11 +106,11 @@ const TabsBar = () => {
                 onClose={handleCloseUserMenu}
                 >
                 
-                    <Button sx={{ color: 'inherit', fontFamily: 'unset', display: 'block' }} href='/'>
+                    <Button sx={{ color: 'inherit', fontFamily: 'unset', display: 'block' }}>
                         Mi cuenta
                     </Button>
 
-                    <Button sx={{ color: 'inherit', fontFamily: 'unset', display: 'block' }} href='/'>
+                    <Button sx={{ color: 'inherit', fontFamily: 'unset', display: 'block' }}>
                     Ajustes
                     </Button>
 

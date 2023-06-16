@@ -1,8 +1,11 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import {Table } from "@mui/material";
 import Reserva from  './Reserva';
 
-const ParkingsTable = ({ parkings }) => {
+const ParkingsTable = ({ parkings, resDate}) => {
+    useEffect(() => {
+        ;
+    }, [resDate]);
     return (
         <Table style={{fontSize: '15px'}}>
             <thead>

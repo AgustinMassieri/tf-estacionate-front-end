@@ -28,7 +28,8 @@ const CheckAvailability = () => {
 
     useEffect(() => {
         getParkings();
-    }, []);
+        console.log(startDate)
+    }, [startDate]);
 
     return(
         <div style={{textAlign: 'center'}}>
@@ -43,7 +44,7 @@ const CheckAvailability = () => {
                 <CreateParkingModal open={open} setOpen={setOpen}/>
             </React.Fragment>
         <LocalizationProvider dateAdapter={AdapterDayjs} >
-            <DatePicker selected={startDate} onChange={(newDate) => setStartDate(newDate)} disablePast sx={{backgroundColor:'white',borderRadius:'10px',position: "absolute",top: "25%",left: "40%"}} label="Seleccione fecha" />
+            <DatePicker selected={startDate} format='DD-MM-YY'  onChange={(newDate) => setStartDate(newDate)} disablePast sx={{backgroundColor:'white',borderRadius:'10px',position: "absolute",top: "25%",left: "43%"}} label="" />
         </LocalizationProvider>
         </div>  
     );

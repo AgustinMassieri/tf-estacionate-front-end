@@ -9,11 +9,11 @@ const Reserva = ({ parking,resDate }) => {
         parkingName: '',
         userId: '',
         status: 'Registrada',
-        date:resDate
+        date: resDate.toISOString().split(['T'])[0]
     });
 
     const updateParking = () => {
-        console.log('Reseva: ' + reservation);
+        console.log('Reserva: ' + JSON.stringify(reservation));
             parking.numberOfParkingSpacesAvailable -= 1;
             if(parking.numberOfParkingSpacesAvailable >= 0){
                 fetch('http://localhost:3001/api/parkings/'+parking._id, {
@@ -42,7 +42,7 @@ const Reserva = ({ parking,resDate }) => {
                 }).then(function(response) {
                     if(response.status === 200){
                         console.log("Se creo la reserva")
-                        window.location.href = "/reservations";
+                       // window.location.href = "/reservations";
                     }
                     else{
                         console.log("Hubo un error creando la reserva")
