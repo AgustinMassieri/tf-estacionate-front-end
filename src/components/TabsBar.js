@@ -111,7 +111,7 @@ const TabsBar = () => {
                     Ajustes
                     </Button>
 
-                    <Button sx={{ color: 'inherit', fontFamily: 'unset', display: 'block' }} href='/'>
+                    <Button sx={{ color: 'inherit', fontFamily: 'unset', display: 'block' }} onClick={ () => {localStorage.removeItem('token'); window.location.replace('/login');}}>
                     Cerrar sesion
                     </Button>
                 

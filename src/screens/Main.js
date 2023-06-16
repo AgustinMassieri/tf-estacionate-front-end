@@ -2,7 +2,6 @@ import React from 'react';
 import informacionLogo from '../images/informacion.png';
 import calendarLogo from '../images/calendario2.png';
 import horarioLogo from '../images/horario.png';
-import preciosLogo from '../images/precios.png';
 import { Typography } from '@mui/material';
 import {styled} from '@mui/system';
 import {createTheme, ThemeProvider } from '@mui/material/styles';
@@ -37,7 +36,7 @@ const Main = () => {
       </div>
 
       <div style={{textAlign: 'center', marginTop: '15%'}}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gridGap: 20 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
           <ThemeProvider theme={customTheme}>
             <StyledDiv onClick={() => {window.location.href= '/reservations'}} >
               <p>MIS RESERVAS</p>
@@ -49,13 +48,6 @@ const Main = () => {
             <StyledDiv onClick={() => {window.location.href= '/checkAvailability'}} style={{cursor:'pointer'}}>
               <p>VER DISPONIBILIDAD</p>
               <img src = {horarioLogo} alt = "calendar" width = "100" height = "100"/>
-            </StyledDiv>
-          </ThemeProvider>
-          
-          <ThemeProvider theme={customTheme}>
-            <StyledDiv onClick={() => {window.location.href= '/prices'}} style={{cursor:'pointer'}}>
-              <p>TARIFAS</p>
-              <img src = {preciosLogo} alt = "calendar" width = "100" height = "100"/>
             </StyledDiv>
           </ThemeProvider>
 
