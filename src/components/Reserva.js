@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from "@mui/material";
 
-const Reserva = ({ parking }) => {
 
+const Reserva = ({ parking,resDate }) => {
+    const [errorMessage, setErrorMessage] = useState(false);
     const [reservation, setReservation] = useState({
         parkingId: '',
         parkingName: '',
         userId: '',
         status: 'Registrada',
-        date: '03/06/2023'
+        date:resDate
     });
-
-    const [errorMessage, setErrorMessage] = useState(false);
 
     const updateParking = () => {
         console.log('Reseva: ' + reservation);
