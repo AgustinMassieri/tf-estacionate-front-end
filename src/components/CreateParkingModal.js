@@ -7,7 +7,7 @@ const CreateParkingModal = ({open, setOpen}) => {
         name: '',
         location: '',
         numberOfParkingSpacesAvailable: 0,
-        price :0
+        price: '$'
     });
 
     const [errorMessage, setErrorMessage] = useState(false);
