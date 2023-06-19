@@ -1,8 +1,8 @@
 import React from 'react';
-import {Table } from "@mui/material";
+import {Table} from "@mui/material";
 import Reserva from  './Reserva';
 
-const ParkingsTable = ({ parkings, resDate}) => {
+const ParkingsTable = ({parkings, resDate}) => {
     return (
         <Table style={{fontSize: '15px'}}>
             <thead>
@@ -16,7 +16,7 @@ const ParkingsTable = ({ parkings, resDate}) => {
             </thead>
             <tbody >
                 {parkings.map((parking) => (
-                    <tr key={parking.id} >
+                    <tr key={parking.id} >                           
                         <td style={{paddingRight: '35px', paddingBottom: '30px'}}>{parking.name}</td>
                         <td style={{paddingRight: '35px', paddingBottom: '30px'}}>{parking.location}</td>
                         <td style={{paddingRight: '35px', paddingBottom: '30px'}}>{parking.numberOfParkingSpacesAvailable}</td>

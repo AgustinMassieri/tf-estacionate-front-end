@@ -9,7 +9,7 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import cancelar from '../images/cancelar.png'
 import completar from '../images/confirmar.png'
-import { Button } from '@mui/material';
+import { Button, Modal, Rating } from '@mui/material';
 
 const columns = [
   { id: 'parkingName', label: 'Estacionamiento', minWidth: 170, align: 'center'},
@@ -24,6 +24,11 @@ export default function StickyHeadTable({reservations}) {
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [showModal, setShowModal] = React.useState(false);
+  const [value, setValue] = React.useState(3);
+  const [parkingId, setParkingId] = React.useState('');
+  const [reservationId, setReservationId] = React.useState('');
+
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -35,6 +40,7 @@ export default function StickyHeadTable({reservations}) {
   };
 
   const updateReservationStatus = (reservationId, estado) => {
+    
     fetch('http://localhost:3001/api/reservations/' + reservationId, {
         method: 'PUT',
         headers: {
@@ -52,9 +58,30 @@ export default function StickyHeadTable({reservations}) {
               console.log("Hubo un error actualizando el estacionamiento")
           } 
       });
-
     window.location.replace('/reservations');
+  }
 
+  const addRateToParking = (parkingId) => {
+    fetch('http://localhost:3001/api/parkings/AddRate/' + parkingId, {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem('token')
+        },
+        body: JSON.stringify(
+          {rate: value}
+        )
+    }).then(function(response) {
+      if(response.status === 200){
+              console.log("Se agrego la calificación correctamente")
+      } else{
+              console.log("Hubo un error agregando la calificacion")
+      }
+    });
+  }
+
+  const handleClose = () =>{
+    setShowModal(false);
   }
 
   return (
@@ -113,7 +140,7 @@ export default function StickyHeadTable({reservations}) {
                         return(
                           <>
                           <Button onClick={() => updateReservationStatus(reservation._id, 'Cancelada')}><img src={cancelar} alt= "cancelar" width = "30" height = "30"/></Button> 
-                          <Button onClick={() => updateReservationStatus(reservation._id, 'Completada')}><img src={completar} alt= "completar" width = "30" height = "30"/></Button>
+                          <Button onClick={() => { setParkingId(reservation.parkingId); setReservationId(reservation._id); setShowModal(true); }}><img src={completar} alt= "completar" width = "30" height = "30"/></Button>
                           </>
                         )
                       }
@@ -133,6 +160,30 @@ export default function StickyHeadTable({reservations}) {
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
+    <Modal open={showModal} onClose={handleClose}>
+      <div style={{  backgroundColor: '#fff',
+                      border: '1px solid #ccc',
+                      borderRadius: '4px',
+                      padding: '16px',
+                      width: '300px',
+                      position: 'absolute',
+                      top: '50%',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)',
+                      textAlign:'center'}}>
+        <h2>Calificar Estacionamiento</h2>
+        <Rating
+          name="simple-controlled"
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+        />
+        <br/><br/>
+        <Button variant="contained" onClick={() => {addRateToParking(parkingId); updateReservationStatus(reservationId, 'Completada')}}>Enviar</Button>
+      </div>
+    </Modal>
     </Paper>
+
   );
 }

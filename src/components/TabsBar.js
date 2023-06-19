@@ -63,7 +63,7 @@ const TabsBar = () => {
                 ESTACIONATE
             </Typography>
 
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, marginLeft: '20%' } }>
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, marginLeft: '16%' } }>
                 <Button sx={{ my: 2, color: 'inherit', fontFamily: 'unset', display: 'block', '&:hover': { textDecoration: 'underline'} }} href='/reservations'>
                     Mis reservas
                 </Button>

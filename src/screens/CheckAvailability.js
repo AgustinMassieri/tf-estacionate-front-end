@@ -23,6 +23,9 @@ const CheckAvailability = () => {
             "Authorization": "Bearer " + localStorage.getItem('token')
           }
         });
+        if(response.status === 401){
+            window.location.replace('/login');
+        }
         const data = await response.json();
         setParkings(data.parkings);
     }    
