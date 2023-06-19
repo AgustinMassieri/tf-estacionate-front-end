@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import avatarLogo from '../images/avatar.png';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+import '../styles/TabsBar.css'
 
 const TabsBar = () => {
 
@@ -62,14 +63,14 @@ const TabsBar = () => {
                 ESTACIONATE
             </Typography>
 
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, marginLeft: '15%' } }>
-                <Button sx={{ my: 2, color: 'inherit', fontFamily: 'unset', display: 'block' }} href='/reservations'>
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, marginLeft: '20%' } }>
+                <Button sx={{ my: 2, color: 'inherit', fontFamily: 'unset', display: 'block', '&:hover': { textDecoration: 'underline'} }} href='/reservations'>
                     Mis reservas
                 </Button>
-                <Button sx={{ my: 2, color: 'inherit', fontFamily: 'unset', display: 'block' }} href='/checkAvailability'>
+                <Button sx={{ my: 2, color: 'inherit', fontFamily: 'unset', display: 'block', '&:hover': { textDecoration: 'underline'} }} href='/checkAvailability'>
                     Ver disponibilidad
                 </Button>
-                <Button sx={{ my: 2, color: 'inherit', fontFamily: 'unset', display: 'block' }} href='/aboutUs'>
+                <Button sx={{ my: 2, color: 'inherit', fontFamily: 'unset', display: 'block', '&:hover': { textDecoration: 'underline'} }} href='/aboutUs'>
                     Sobre Nosotros
                 </Button>
             </Box>

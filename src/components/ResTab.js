@@ -22,8 +22,6 @@ const columns = [
 
 export default function StickyHeadTable({reservations}) {
 
-  console.log('$$ ' + JSON.stringify(reservations))
-
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -60,7 +58,7 @@ export default function StickyHeadTable({reservations}) {
   }
 
   return (
-    <Paper sx={{ width: '110%', overflow: 'hidden' }}>
+    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
