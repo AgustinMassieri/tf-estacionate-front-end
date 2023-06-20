@@ -24,7 +24,7 @@ const AboutUs = () => {
                     fontSize: '32px'
                     }}
                     >SOBRE NOSOTROS</Typography>
-                </div><br/><br/>
+                </div><br/>
                     <div className="about-us-info">
                         <div className="about-us-section">
                             <h3 className="about-us-section-title">Motivación</h3>
@@ -33,7 +33,7 @@ const AboutUs = () => {
                             </p>
                         </div>
                         <div className="about-us-section2">
-                            <img src={estacionamientoLleno} alt='estacionamientoLleno' style={{borderRadius: '4%'}}></img>
+                            <img src={estacionamientoLleno} alt='estacionamientoLleno' style={{borderRadius: '4%'}} height='300px'></img>
                         </div>
                         <div className="about-us-section">
                             <h3 className="about-us-section-title">Objetivo</h3>
