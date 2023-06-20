@@ -72,9 +72,11 @@ export default function StickyHeadTable({reservations}) {
           {rate: value}
         )
     }).then(function(response) {
+      console.log(JSON.stringify(response))
       if(response.status === 200){
               console.log("Se agrego la calificación correctamente")
       } else{
+              
               console.log("Hubo un error agregando la calificacion")
       }
     });
