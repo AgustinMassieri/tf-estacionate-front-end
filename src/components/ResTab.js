@@ -41,7 +41,7 @@ export default function StickyHeadTable({reservations}) {
 
   const updateReservationStatus = (reservationId, estado) => {
     
-    fetch('http://localhost:3001/api/reservations/' + reservationId, {
+    fetch('https://estacionate.onrender.com/api/reservations/' + reservationId, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json",
@@ -62,7 +62,7 @@ export default function StickyHeadTable({reservations}) {
   }
 
   const addRateToParking = (parkingId) => {
-    fetch('http://localhost:3001/api/parkings/AddRate/' + parkingId, {
+    fetch('https://estacionate.onrender.com/api/parkings/AddRate/' + parkingId, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json",

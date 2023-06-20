@@ -37,7 +37,7 @@ const CreateParkingModal = ({open, setOpen}) => {
             setErrorMessage(true);      
             return;
         } else{
-            fetch('http://localhost:3001/api/parkings', {
+            fetch('https://estacionate.onrender.com/api/parkings', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",

@@ -16,7 +16,7 @@ const CheckAvailability = () => {
     const isAdmin = localStorage.getItem('roles') === 'admin';
 
     const getParkings = async () => {
-        const response = await fetch('http://localhost:3001/api/parkings/ByDate/' + startDate.toISOString().split(['T'])[0], {
+        const response = await fetch('https://estacionate.onrender.com/api/parkings/ByDate/' + startDate.toISOString().split(['T'])[0], {
           method: 'GET',
           headers: {
             "Content-Type": "application/json",

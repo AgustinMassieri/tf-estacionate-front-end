@@ -19,7 +19,7 @@ const SignUp = () => {
             setErrorMessage(true);
             return;
         }
-        fetch('http://localhost:3001/api/auth/register', {
+        fetch('https://estacionate.onrender.com/api/auth/register', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"

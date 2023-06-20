@@ -16,7 +16,7 @@ const Reserva = ({ parking,resDate }) => {
 
             if(parking.numberOfParkingSpacesAvailable >= 0){
 
-                fetch('http://localhost:3001/api/reservations/', {
+                fetch('https://estacionate.onrender.com/api/reservations/', {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json",
