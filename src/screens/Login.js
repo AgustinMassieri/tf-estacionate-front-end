@@ -19,6 +19,12 @@ const Login = () => {
     '& .MuiInput-underline:after': {
       borderBottomColor: '#B2BAC2',
     },
+    '& label': {
+      color: '#A0AAB4',
+    },
+    '& .MuiInput-underline:before': {
+      borderBottomColor: '#B2BAC2',
+    },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
         borderColor: '#E0E3E7',
