@@ -1,7 +1,43 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
-import { Button, styled } from "@mui/material";
+import { Button, ThemeProvider, createTheme } from "@mui/material";
 import '../styles/Login.css';
+import { useTheme } from '@emotion/react';
+
+const customTheme = (outerTheme) =>
+createTheme({
+  components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          '& label.Mui-focused': {
+            color: '#A0AAB4',
+          },
+          '& .MuiInput-underline:after': {
+            borderBottomColor: '#B2BAC2',
+          },
+          '& label': {
+            color: '#A0AAB4',
+          },
+          '& .MuiInput-underline:before': {
+            borderBottomColor: '#B2BAC2',
+          },
+          '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              borderColor: '#E0E3E7',
+            },
+            '&:hover fieldset': {
+              borderColor: '#B2BAC2',
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: '#6F7E8C',
+            },
+          }
+        },
+      },
+    }
+  },
+});
 
 const Login = () => {
 
@@ -12,31 +48,7 @@ const Login = () => {
 
   const [errorMessage, setErrorMessage] = useState(false);
 
-  const CssTextField = styled(TextField)({
-    '& label.Mui-focused': {
-      color: '#A0AAB4',
-    },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: '#B2BAC2',
-    },
-    '& label': {
-      color: '#A0AAB4',
-    },
-    '& .MuiInput-underline:before': {
-      borderBottomColor: '#B2BAC2',
-    },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: '#E0E3E7',
-      },
-      '&:hover fieldset': {
-        borderColor: '#B2BAC2',
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: '#6F7E8C',
-      },
-    },
-  }); 
+  const outerTheme = useTheme();
 
   const handleRegister = () => {
     if ( user.email === '' || user.password === '' ) {
@@ -67,16 +79,17 @@ const Login = () => {
   }
   
   return(
+    <ThemeProvider theme={customTheme(outerTheme)}>
     <div className='Login'>
       <h1>Inicia Sesion</h1>
         {errorMessage && <p style={{color: 'red'}}>Usuario y/o contraseña incorrectos</p>}
         <div style={{border: '2px solid white', borderRadius: '25px', paddingBottom: '15px', paddingLeft: '10px', paddingRight: '10px'}}> 
         <div className='formInput'>
-        <TextField required label="Mail" variant="standard" inputProps={{style: { color: 'white' }}} onChange={(e) => setUser({...user, email: e.target.value})} onKeyPress={event => { if (event.key === 'Enter') { handleRegister() } }} />
+        <TextField required label="Mail" variant="standard"  inputProps={{ style: { color: '#B2BAC2' } }} onChange={(e) => setUser({...user, email: e.target.value})} onKeyPress={event => { if (event.key === 'Enter') { handleRegister() } }}/>
         </div>  
         
         <div className='formInput'>
-        <TextField required label="Contraseña" type="password" variant="standard" inputProps={{style: { color: 'white' }}} onChange={(e) => setUser({...user, password: e.target.value})} onKeyPress={event => { if (event.key === 'Enter') { handleRegister() } }} />
+        <TextField required label="Contraseña" type="password" variant="standard" inputProps={{ style: { color: '#B2BAC2' } }} onChange={(e) => setUser({...user, password: e.target.value})} onKeyPress={event => { if (event.key === 'Enter') { handleRegister() } }}/>
         </div>
       </div>
       <br/>
@@ -85,6 +98,7 @@ const Login = () => {
       <p>¿No tenes una cuenta?</p>
       <Button href='/SignUp' size="medium" variant="contained">Registrase</Button>
     </div>
+    </ThemeProvider>
   ); 
 }
 
