@@ -72,11 +72,11 @@ const Login = () => {
         {errorMessage && <p style={{color: 'red'}}>Usuario y/o contraseña incorrectos</p>}
         <div style={{border: '2px solid white', borderRadius: '25px', paddingBottom: '15px', paddingLeft: '10px', paddingRight: '10px'}}> 
         <div className='formInput'>
-        <CssTextField required label="Mail" variant="standard" inputProps={{style: { color: 'white' }}} onChange={(e) => setUser({...user, email: e.target.value})} onKeyPress={event => { if (event.key === 'Enter') { handleRegister() } }} />
+        <TextField required label="Mail" variant="standard" inputProps={{style: { color: 'white' }}} onChange={(e) => setUser({...user, email: e.target.value})} onKeyPress={event => { if (event.key === 'Enter') { handleRegister() } }} />
         </div>  
         
         <div className='formInput'>
-        <CssTextField required label="Contraseña" type="password" variant="standard" inputProps={{style: { color: 'white' }}} onChange={(e) => setUser({...user, password: e.target.value})} onKeyPress={event => { if (event.key === 'Enter') { handleRegister() } }} />
+        <TextField required label="Contraseña" type="password" variant="standard" inputProps={{style: { color: 'white' }}} onChange={(e) => setUser({...user, password: e.target.value})} onKeyPress={event => { if (event.key === 'Enter') { handleRegister() } }} />
         </div>
       </div>
       <br/>
