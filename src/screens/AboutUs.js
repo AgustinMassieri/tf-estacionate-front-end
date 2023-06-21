@@ -15,7 +15,7 @@ const AboutUs = () => {
                     variant="h3"
                     component="a"
                     sx={{
-                    textAlign:'center',
+                    justifyContent: 'center',
                     fontFamily: 'monospace',
                     fontWeight: 800,
                     letterSpacing: '.1rem',
@@ -32,7 +32,7 @@ const AboutUs = () => {
                                 Ir de un lugar a otro con tu auto puede que no sea una buena idea. No solo el tráfico es un problema con el que convivimos todos los días. Estacionar en la calle se ha vuelto una misión imposible debido a que las veredas no dan a basto y los estacionamientos no poseen un servicio que brinde la experiencia de usuario que hoy la gente pretende.
                             </p>
                         </div>
-                        <div className="about-us-section2">
+                        <div style={{justifyContent: 'center'}}>
                             <img src={estacionamientoLleno} alt='estacionamientoLleno' style={{borderRadius: '4%'}} height='300px'></img>
                         </div>
                         <div className="about-us-section">
