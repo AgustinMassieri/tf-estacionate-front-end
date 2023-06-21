@@ -108,12 +108,12 @@ export default function StickyHeadTable({reservations}) {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((reservation) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={reservation._id} >
+                  <TableRow hover role="checkbox" tabIndex={-1} key={reservation._id}>
                     {columns.map((column) => {
                       const value = reservation[column.id];
                       if(value != null && (reservation.status === 'Registrada')){
                         return (
-                          <TableCell key={column.id} align={column.align}>
+                          <TableCell key={column.id} align={column.align} style={{fontSize: '16px'}}>
                             {column.format && typeof value === 'number'
                               ? column.format(value)
                               : value}
@@ -122,7 +122,7 @@ export default function StickyHeadTable({reservations}) {
                       }
                       else if(value != null && (reservation.status === 'Cancelada')){
                         return (
-                          <TableCell key={column.id} align={column.align} style={{textDecoration: 'line-through red 2px'}}>
+                          <TableCell key={column.id} align={column.align} style={{textDecoration: 'line-through red 2px', fontSize: '16px'}}>
                             {column.format && typeof value === 'number'
                               ? column.format(value)
                               : value}
@@ -131,7 +131,7 @@ export default function StickyHeadTable({reservations}) {
                       }
                       else if(value != null && (reservation.status === 'Completada')){
                         return (
-                          <TableCell key={column.id} align={column.align} style={{textDecoration: 'line-through green 2px'}}>
+                          <TableCell key={column.id} align={column.align} style={{textDecoration: 'line-through green 2px', fontSize: '16px'}}>
                             {column.format && typeof value === 'number'
                               ? column.format(value)
                               : value}
