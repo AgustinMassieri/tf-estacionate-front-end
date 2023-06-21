@@ -33,7 +33,7 @@ const ParkingsTable = ({parkings, resDate}) => {
                             name="read-only"
                             precision={0.5}
                             value={ArrayAvg(parking.rating)}
-                            style={{paddingRight: '15px', paddingTop: '15px'}}
+                            style={{paddingRight: '35px', paddingTop: '15px'}}
                         />                           
                         <td style={{paddingRight: '35px', paddingBottom: '15px', paddingTop: '15px'}}>{parking.name}</td>
                         <td style={{paddingRight: '35px', paddingBottom: '15px', paddingTop: '15px'}}>{parking.location}</td>
